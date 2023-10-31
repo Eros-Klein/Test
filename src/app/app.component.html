@@ -1,0 +1,17 @@
+<div class="container">
+    <form>
+        <input type="text" placeholder="example@provider.com" (keyup)="onChange($event.target)" id="email">
+        <br>
+        <input type="text" placeholder="UserName" (keyup)="onChange($event.target)" id="username">
+        <br>
+        <input type="password" placeholder="PassWord" (keyup)="onChange($event.target)" id="password">
+        <br>
+        <button type="button" (click)="login()">Login</button>
+        <button type="button" (click)="register()">Register</button>
+        <button type="button" (click)="remove()">Remove</button>
+        <br>
+        <button type="button" (click)="refresh()">Update Users</button>
+    </form>
+    <h1>All users</h1>
+    <p>{{users}}</p>
+</div>

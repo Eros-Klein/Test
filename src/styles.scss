@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+
+@keyframes colorChange {
+    0% {
+        color: #b400a7
+    }
+    25% {
+        color: #b460e7
+    }
+    50% {
+        color: #7029e7
+    }
+    75% {
+        color: #d622e7
+    }
+}
+
+#content {
+    user-select: none;
+}
+
+p {
+    color: #c480e7;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+body {
+    background-color: #262329;
+    font-family: "Arial";
+}
+
+button {
+    background-color: transparent;
+    border-style: solid;
+    border-color: #58008a;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #c480e7;
+    transition: ease-in-out .4s;
+}
+
+h1 {
+    color: #b400a7;
+    font-weight: 800;
+    animation-name: colorChange;
+    animation-duration: 45s;
+    animation-iteration-count: infinite;
+}
+
+nav {
+    user-select: none;
+    background-color: #590075;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    border-radius: 15px;
+}
+
+.container {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.navbar-option {
+    border-style: none;
+    color: #c480e7;
+    font-size: 28px;
+    width: 175px;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    transition: ease-in-out .4s;
+}
+
+.navbar-categories {
+    padding-left: 20px;
+    font-size: 22px;
+    color: #a516e7;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-shrink: inherit;
+}
+
+.navbar-option:hover {
+    background-color: #672775;
+}
+
+#center {
+    text-align: center;
+}
+
+button:hover {
+    color: #a516e7;
+    cursor: pointer;
+}
