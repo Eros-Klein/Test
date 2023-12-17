@@ -1,101 +1,219 @@
 /* You can add global styles to this file, and also import other style files */
 
 @keyframes colorChange {
-    0% {
-        color: #b400a7
-    }
-    25% {
-        color: #b460e7
-    }
-    50% {
-        color: #7029e7
-    }
-    75% {
-        color: #d622e7
-    }
+  0% {
+    color: #b400a7;
+  }
+  25% {
+    color: #b460e7;
+  }
+  50% {
+    color: #7029e7;
+  }
+  75% {
+    color: #d622e7;
+  }
 }
 
 #content {
-    user-select: none;
+  user-select: none;
 }
 
 p {
-    color: #c480e7;
-    font-size: 20px;
-    font-weight: 500;
+  color: #c480e7;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 body {
-    background-color: #262329;
-    font-family: "Arial";
+  background-color: #262329;
+  font-family: "Arial";
 }
 
 button {
-    background-color: transparent;
-    border-style: solid;
-    border-color: #58008a;
-    border-radius: 10px;
-    font-size: 25px;
-    color: #c480e7;
-    transition: ease-in-out .4s;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #58008a;
+  border-radius: 10px;
+  font-size: 25px;
+  color: #c480e7;
+  transition: ease-in-out 0.4s;
 }
 
 h1 {
-    color: #b400a7;
-    font-weight: 800;
-    animation-name: colorChange;
-    animation-duration: 45s;
-    animation-iteration-count: infinite;
-}
-
-nav {
-    user-select: none;
-    background-color: #590075;
-    position: fixed;
-    top: 5px;
-    left: 5px;
-    bottom: 5px;
-    border-radius: 15px;
+  color: #b400a7;
+  font-weight: 800;
+  animation-name: colorChange;
+  animation-duration: 45s;
+  animation-iteration-count: infinite;
 }
 
 .container {
-    margin-left: 200px;
-    margin-right: 200px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 35px;
+}
+
+@keyframes fly-in {
+  0% {
+    transform: translateY(80vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fly-in-right {
+  0% {
+    transform: translateX(80vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+input {
+  background-color: transparent;
+  color: #c480e7;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #dfacf9;
+  padding: 5px;
+  font-size: 20px;
+  transition: all 0.8s ease-in-out;
+  animation: fly-in 1s ease-in-out;
+  &:focus {
+    outline: none;
+    border-color: #b400a7;
+  }
+}
+
+select {
+  background-color: transparent;
+  color: #c480e7;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #dfacf9;
+  padding: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in-out;
+  animation: fly-in 1s ease-in-out;
+  &:focus {
+    outline: none;
+    border-color: #b400a7;
+  }
+}
+
+h2 {
+  color: #b400a7;
+  font-weight: 700;
+  animation: fly-in-right 1s ease-in-out;
+  animation-duration: 2s;
+}
+
+button#logout {
+  margin: 20px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #b400a7;
+  }
+  25% {
+    color: #b460e7;
+  }
+  50% {
+    color: #7029e7;
+  }
+  75% {
+    color: #d622e7;
+  }
+}
+
+#content {
+  user-select: none;
+}
+
+p {
+  color: #c480e7;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+body {
+  background-color: #262329;
+  font-family: "Arial";
+}
+
+button {
+  background-color: transparent;
+  border-style: solid;
+  border-color: #58008a;
+  border-radius: 10px;
+  font-size: 25px;
+  color: #c480e7;
+  transition: ease-in-out 0.4s;
+}
+
+h1 {
+  color: #b400a7;
+  font-weight: 800;
+  animation-name: colorChange;
+  animation-duration: 45s;
+  animation-iteration-count: infinite;
+}
+
+nav {
+  user-select: none;
+  background-color: #590075;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  border-radius: 15px;
+}
+
+.container {
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .navbar-option {
-    border-style: none;
-    color: #c480e7;
-    font-size: 28px;
-    width: 175px;
-    text-align: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    transition: ease-in-out .4s;
+  border-style: none;
+  color: #c480e7;
+  font-size: 28px;
+  width: 175px;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  transition: ease-in-out 0.4s;
 }
 
 .navbar-categories {
-    padding-left: 20px;
-    font-size: 22px;
-    color: #a516e7;
+  padding-left: 20px;
+  font-size: 22px;
+  color: #a516e7;
 }
 
 .flex-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    flex-shrink: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-shrink: inherit;
 }
 
 .navbar-option:hover {
-    background-color: #672775;
+  background-color: #672775;
 }
 
 #center {
-    text-align: center;
+  text-align: center;
 }
 
 button:hover {
-    color: #a516e7;
-    cursor: pointer;
+  color: #a516e7;
+  cursor: pointer;
 }
