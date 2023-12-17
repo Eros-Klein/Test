@@ -1,1 +1,8 @@
-<p>welcome works!</p>
+<div *ngIf="this.loginProgress" id="loginWindow">
+    <app-login></app-login>
+</div>
+<div class="container">
+    <h1>Welcome to our groundbreaking project</h1>
+    <hr>
+    <button (click)="this.loginProgress = true;">Click here to Login</button>
+</div>
