@@ -15,7 +15,7 @@ export class AppComponent {
   constructor() {
   }
   public refresh(){
-    fetch(`http://localhost:8080/api/getUsers`, {
+    fetch(`http://breneisminecraft.duckdns.org:5082/api/getUsers`, {
   }).then(response => {
     response.json().then((data) => {
       this.users = data;
@@ -26,7 +26,7 @@ export class AppComponent {
   }
   public login(){
     console.log("login");
-    fetch(`http://localhost:8080/api/validUser/${this.username}/${this.password}`, {
+    fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${this.username}/${this.password}`, {
   }).then(response => {
     console.log(response.json());
   }).catch(err => {
@@ -34,7 +34,7 @@ export class AppComponent {
   });
   }
   public register(){
-    fetch(`http://localhost:8080/api/insertUser/${this.username}/${this.password}/${this.email}`, {
+    fetch(`http://breneisminecraft.duckdns.org:5082/api/insertUser/${this.username}/${this.password}/${this.email}`, {
   }).then(response => {
     console.log(response);
   }).catch(err => {
@@ -45,7 +45,7 @@ export class AppComponent {
 
   public remove(){
     console.log("login");
-    fetch(`http://localhost:8080/api/removeAccount/${this.username}/${this.password}`, {
+    fetch(`http://breneisminecraft.duckdns.org:5082/api/removeAccount/${this.username}/${this.password}`, {
   }).then(response => {
     console.log(response.json());
   }).catch(err => {
