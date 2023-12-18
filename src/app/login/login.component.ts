@@ -40,14 +40,14 @@ export class LoginComponent {
     fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`, {
   }).then(response => {
     response.json().then(data => {
-      console.log(data);
+      console.log("Data =" + data);
       valid = data;
     });
   }).catch(err => {
     console.log(err);
     valid = false;
   });
-  console.log(valid);
+  console.log("valid = " + valid);
   return valid;
   }
   public static logout() : void{
