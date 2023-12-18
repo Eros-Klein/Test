@@ -9,7 +9,7 @@ export class AppComponent {
   public title:string = 'relace';
 
   isLoggedIn() : boolean{
-    console.log(localStorage.getItem('LoggedIn'));
+    console.log("LoggedIn=" + localStorage.getItem('LoggedIn'));
     return localStorage.getItem('LoggedIn') === 'true';
   }
 }

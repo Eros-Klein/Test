@@ -14,6 +14,7 @@ export class LoginComponent {
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
       localStorage.setItem('Password', password);
+      console.log("LoggedIn=" + localStorage.getItem('LoggedIn'));
       return true;
     }
     else return false;
