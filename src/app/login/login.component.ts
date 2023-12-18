@@ -22,6 +22,7 @@ export class LoginComponent {
   }).then(response => {
     this.login(username, password);
     response.json().then(data => {
+      console.log(data);
       valid = data;
     });
   }).catch(err => {
@@ -35,6 +36,7 @@ export class LoginComponent {
     fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`, {
   }).then(response => {
     response.json().then(data => {
+      console.log(data);
       valid = data;
     });
   }).catch(err => {
