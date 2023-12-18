@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-profile',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-
+    public logout() : void{
+      LoginComponent.logout();
+    }
 }

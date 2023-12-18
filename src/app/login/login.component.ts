@@ -17,24 +17,35 @@ export class LoginComponent {
     return true;
   }
   public register(username : string, password : string, email : string) : boolean{
+    let valid : boolean = false;
     fetch(`http://breneisminecraft.duckdns.org:5082/api/insertUser/${username}/${password}/${email}`, {
   }).then(response => {
     this.login(username, password);
-    return response.json();
+    response.json().then(data => {
+      valid = data;
+    });
   }).catch(err => {
     console.log(err);
-    return false;
+    valid = false;
   });
-  return true;
+  return valid;
   }
   public isAccountValid(username : string, password : string) : boolean{
+    let valid : boolean = false;
     fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`, {
   }).then(response => {
-    return response.json();
+    response.json().then(data => {
+      valid = data;
+    });
   }).catch(err => {
     console.log(err);
-    return false;
+    valid = false;
   });
-  return true;
+  return valid;
+  }
+  public static logout() : void{
+    localStorage.setItem('LoggedIn', 'false');
+    localStorage.setItem('Username', '');
+    localStorage.setItem('Password', '');
   }
 }

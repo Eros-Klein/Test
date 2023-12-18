@@ -10,7 +10,7 @@
     </form>
     <p class="small-text ">
         you don't have an account yet?
-        <button (click)="this.registerMenu=true " id="register ">Register here</button>
+        <button (click)="this.registerMenu=true" class="small-button" id="register ">Register here</button>
     </p>
 </div>
 <ng-template #registerBlock>
@@ -27,6 +27,6 @@
     </form>
     <p class="small-text ">
         you already have an account?
-        <button (click)="this.registerMenu=false " id="register ">Register here</button>
+        <button (click)="this.registerMenu=false" class="small-button" id="login ">Login here</button>
     </p>
 </ng-template>
