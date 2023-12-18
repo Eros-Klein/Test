@@ -10,16 +10,19 @@ export class LoginComponent {
   
   public login(username : string, password : string) : boolean{
     if(this.isAccountValid(username, password)){
+      console.log('Logged in');
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
       localStorage.setItem('Password', password);
+      return true;
     }
-    return true;
+    else return false;
   }
   public register(username : string, password : string, email : string) : boolean{
     let valid : boolean = false;
     fetch(`http://breneisminecraft.duckdns.org:5082/api/insertUser/${username}/${password}/${email}`, {
   }).then(response => {
+    console.log(response);
     this.login(username, password);
     response.json().then(data => {
       console.log(data);
