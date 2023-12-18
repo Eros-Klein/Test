@@ -46,6 +46,7 @@ export class LoginComponent {
     console.log(err);
     valid = false;
   });
+  console.log(valid);
   return valid;
   }
   public static logout() : void{
