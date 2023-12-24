@@ -10,40 +10,43 @@ export class LoginComponent {
 
   public async login(username: string, password: string): Promise<boolean> {
     if (await this.isAccountValid(username, password) === true) {
-      console.log('Logged in');
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
-      localStorage.setItem('Password', password);
-      console.log("LoggedIn=" + localStorage.getItem('LoggedIn'));
+      localStorage.setItem('Token', await this.getToken(username, password));
+      console.log("LoggedIn = " + localStorage.getItem('LoggedIn'));
       return true;
     }
-    else return false;
+    return false;
   }
-  public register(username: string, password: string, email: string): boolean {
-    let valid: boolean = false;
-    fetch(`http://breneisminecraft.duckdns.org:5082/api/insertUser/${username}/${password}/${email}`, {
-    }).then(response => {
-      console.log(response);
-      this.login(username, password);
-      response.json().then(data => {
-        console.log(data);
-        valid = data;
-      });
-    }).catch(err => {
-      console.log(err);
-      valid = false;
-    });
-    return valid;
+
+  public async getToken(username: string, password: string): Promise<string> {
+    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/getToken/${username}/${password}`);
+    const data = await response.json();
+    return data;
   }
+
+  public async register(username: string, password: string, email: string): Promise<boolean> {
+    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/register/${username}/${password}/${email}`);
+    const data = await response.json();
+    if(data != null){
+      localStorage.setItem('LoggedIn', 'true');
+      localStorage.setItem('Username', username);
+      localStorage.setItem('Token', data);
+      return true;
+    }
+    return false;
+  }
+
   public async isAccountValid(username: string, password: string): Promise<boolean> {
     let valid: boolean = false;
     const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`);
     console.log("valid = " + valid);
     return valid;
   }
+
   public static logout(): void {
     localStorage.setItem('LoggedIn', 'false');
     localStorage.setItem('Username', '');
-    localStorage.setItem('Password', '');
+    localStorage.setItem('Token', '');
   }
 }
