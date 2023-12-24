@@ -8,6 +8,6 @@ import { LoginComponent } from '../login/login.component';
 })
 export class ProfileComponent {
     public logout() : void{
-      LoginComponent.logout();
+      //LoginComponent.logout();
     }
 }
