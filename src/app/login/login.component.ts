@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  public registerMenu : boolean = false;
-  
-  public login(username : string, password : string) : boolean{
-    if(this.isAccountValid(username, password)){
+  public registerMenu: boolean = false;
+
+  public async login(username: string, password: string): Promise<boolean> {
+    if (await this.isAccountValid(username, password) === true) {
       console.log('Logged in');
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
@@ -19,38 +19,29 @@ export class LoginComponent {
     }
     else return false;
   }
-  public register(username : string, password : string, email : string) : boolean{
-    let valid : boolean = false;
+  public register(username: string, password: string, email: string): boolean {
+    let valid: boolean = false;
     fetch(`http://breneisminecraft.duckdns.org:5082/api/insertUser/${username}/${password}/${email}`, {
-  }).then(response => {
-    console.log(response);
-    this.login(username, password);
-    response.json().then(data => {
-      console.log(data);
-      valid = data;
+    }).then(response => {
+      console.log(response);
+      this.login(username, password);
+      response.json().then(data => {
+        console.log(data);
+        valid = data;
+      });
+    }).catch(err => {
+      console.log(err);
+      valid = false;
     });
-  }).catch(err => {
-    console.log(err);
-    valid = false;
-  });
-  return valid;
+    return valid;
   }
-  public isAccountValid(username : string, password : string) : boolean{
-    let valid : boolean = false;
-    fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`, {
-  }).then(response => {
-    response.json().then(data => {
-      console.log("Data =" + data);
-      valid = data;
-    });
-  }).catch(err => {
-    console.log(err);
-    valid = false;
-  });
-  console.log("valid = " + valid);
-  return valid;
+  public async isAccountValid(username: string, password: string): Promise<boolean> {
+    let valid: boolean = false;
+    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/validateUser/${username}/${password}`);
+    console.log("valid = " + valid);
+    return valid;
   }
-  public static logout() : void{
+  public static logout(): void {
     localStorage.setItem('LoggedIn', 'false');
     localStorage.setItem('Username', '');
     localStorage.setItem('Password', '');
