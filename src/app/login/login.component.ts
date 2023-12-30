@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { ILoginResponse } from './login.component.interfaces';
 
 @Component({
   selector: 'app-login',
@@ -39,8 +40,8 @@ export class LoginComponent {
   public async isAccountValid(username: string, password: string): Promise<boolean> {
     let valid: boolean = false;
     const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`);
-    const data = await response.json();
-    console.log("response = " + data);
+    const data : ILoginResponse  = await response.json();
+    console.log("success = " + data.success + " token = " + data.token);
     return valid;
   }
 
