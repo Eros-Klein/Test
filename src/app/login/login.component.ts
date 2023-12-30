@@ -30,7 +30,7 @@ export class LoginComponent {
     if(lastValueFrom(data) != null){
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
-      localStorage.setItem('Token', data);
+      localStorage.setItem('Token', data);  
       return true;
     }
     return false;
