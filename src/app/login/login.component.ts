@@ -25,7 +25,7 @@ export class LoginComponent {
   }
 
   public async register(username: string, password: string, email: string): Promise<boolean> {
-    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/register/${username}/${password}/${email}`);
+    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/insertUser/${username}/${password}/${email}`);
     const data = await response.json();
     if(lastValueFrom(data) != null){
       localStorage.setItem('LoggedIn', 'true');
