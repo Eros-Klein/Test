@@ -1,5 +1,13 @@
 <div *ngIf="isLoggedIn(); else loginBlock" class="container">
-    <app-profile></app-profile>
+    <app-nav (categorie)="setCategorie($event)"></app-nav>
+    <div [ngSwitch]="this.categorie">
+        <div *ngSwitchCase="'profile'">
+            <app-profile></app-profile>
+        </div>
+        <div *ngSwitchCase="'messenger'">
+            <app-messenger></app-messenger>
+        </div>
+    </div>
 </div>
 <ng-template #loginBlock>
     <app-welcome></app-welcome>

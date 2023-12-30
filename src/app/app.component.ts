@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   public title:string = 'relace';
+  public categorie:string = 'home';
+
+  setCategorie(categorie: string):void{
+    this.categorie = categorie;
+  }
 
   isLoggedIn() : boolean{
     return localStorage.getItem('LoggedIn') === 'true';

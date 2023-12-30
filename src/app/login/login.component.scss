@@ -27,3 +27,24 @@ input {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+#loginWindow {
+  top: 50%;
+  left: 50%;
+  height: 70%;
+  width: 50%;
+  background-color: #390779d5;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  border-radius: 25px;
+  transform: translate(-50%, -50%);
+}

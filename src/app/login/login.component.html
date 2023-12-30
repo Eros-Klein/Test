@@ -1,33 +1,35 @@
-<div class="login" *ngIf="this.registerMenu == false; else registerBlock">
-    <h1>Login</h1>
-    <hr>
-    <form>
-        <input type="text" id="username" #username placeholder="Username ">
-        <br>
-        <input type="password " id="password " #password placeholder="Password ">
-        <br>
-        <button (submit)="false" (click)="this.login(username.value, password.value)" type="button">Login</button>
-    </form>
-    <p class="small-text ">
-        you don't have an account yet?
-        <button (click)="this.registerMenu=true" class="small-button" id="register ">Register here</button>
-    </p>
+<div id="loginWindow">
+    <div class="login" *ngIf="this.registerMenu == false; else registerBlock">
+        <h1>Login</h1>
+        <hr>
+        <form>
+            <input type="text" id="username" #username placeholder="Username ">
+            <br>
+            <input type="password " id="password " #password placeholder="Password ">
+            <br>
+            <button (submit)="false" (click)="this.login(username.value, password.value)" type="button">Login</button>
+        </form>
+        <p class="small-text ">
+            you don't have an account yet?
+            <button (click)="this.registerMenu=true" class="small-button" id="register ">Register here</button>
+        </p>
+    </div>
+    <ng-template #registerBlock>
+        <h1>Register</h1>
+        <hr>
+        <form>
+            <input type="text " id="email " #email placeholder=" example@provider.com ">
+            <br>
+            <input type="text " id="username " #username placeholder="Username ">
+            <br>
+            <input type="password " id="password " #password placeholder="Password ">
+            <br>
+            <button (submit)="false" (click)="this.register(username.value, password.value, email.value)"
+                type="button">Register</button>
+        </form>
+        <p class="small-text ">
+            you already have an account?
+            <button (click)="this.registerMenu=false" class="small-button" id="login ">Login here</button>
+        </p>
+    </ng-template>
 </div>
-<ng-template #registerBlock>
-    <h1>Register</h1>
-    <hr>
-    <form>
-        <input type="text " id="email " #email placeholder=" example@provider.com ">
-        <br>
-        <input type="text " id="username " #username placeholder="Username ">
-        <br>
-        <input type="password " id="password " #password placeholder="Password ">
-        <br>
-        <button (submit)="false" (click)="this.register(username.value, password.value, email.value)"
-            type="button">Register</button>
-    </form>
-    <p class="small-text ">
-        you already have an account?
-        <button (click)="this.registerMenu=false" class="small-button" id="login ">Login here</button>
-    </p>
-</ng-template>
