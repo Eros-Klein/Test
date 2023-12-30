@@ -7,7 +7,8 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
+  public name : String | null = localStorage.getItem('Username');
     public logout() : void{
-      //LoginComponent.logout();
+      LoginComponent.logout();
     }
 }
