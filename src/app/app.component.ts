@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   }
 
   async login() : Promise<void>{
-    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${localStorage.getItem('Username')}/${localStorage.getItem('Token')}`);
+    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/login/${localStorage.getItem('Username')}/${localStorage.getItem('Token')}`);
     const data = await response.json();
     if(data === true){
       localStorage.setItem('LoggedIn', 'true');
@@ -22,7 +22,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    localStorage.setItem('LoggedIn', 'false');
     this.login();
   }
 }

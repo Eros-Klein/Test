@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +9,13 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   public registerMenu: boolean = false;
 
-  public async login(username: string, password: string): Promise<boolean> {
+  public async login(username: string, password: string): Promise<void> {
     if (await this.isAccountValid(username, password) === true) {
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
       localStorage.setItem('Token', await this.getToken(username, password));
       console.log("LoggedIn = " + localStorage.getItem('LoggedIn'));
-      return true;
     }
-    return false;
   }
 
   public async getToken(username: string, password: string): Promise<string> {
@@ -28,7 +27,7 @@ export class LoginComponent {
   public async register(username: string, password: string, email: string): Promise<boolean> {
     const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/register/${username}/${password}/${email}`);
     const data = await response.json();
-    if(data != null){
+    if(lastValueFrom(data) != null){
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
       localStorage.setItem('Token', data);
