@@ -11,11 +11,12 @@ export class LoginComponent {
   public registerMenu: boolean = false;
 
   public async login(username: string, password: string): Promise<void> {
-    if (await this.isAccountValid(username, password) === true) {
+    const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`);
+    const data : ILoginResponse = await response.json();
+    if(data.success){
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
-      localStorage.setItem('Token', await this.getToken(username, password));
-      console.log("LoggedIn = " + localStorage.getItem('LoggedIn'));
+      localStorage.setItem('Token', data.token);  
     }
   }
 
@@ -27,22 +28,19 @@ export class LoginComponent {
 
   public async register(username: string, password: string, email: string): Promise<boolean> {
     const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/insertUser/${username}/${password}/${email}`);
-    const data = await response.json();
-    if(lastValueFrom(data) != null){
+    const data : ILoginResponse = await response.json();
+    if(data.success){
       localStorage.setItem('LoggedIn', 'true');
       localStorage.setItem('Username', username);
-      localStorage.setItem('Token', data);  
-      return true;
+      localStorage.setItem('Token', data.token);  
     }
-    return false;
+    return data.success;
   }
 
   public async isAccountValid(username: string, password: string): Promise<boolean> {
-    let valid: boolean = false;
     const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`);
     const data : ILoginResponse  = await response.json();
-    console.log("success = " + data.success + " token = " + data.token);
-    return valid;
+    return data.success;
   }
 
   public static logout(): void {
