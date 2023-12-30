@@ -39,7 +39,8 @@ export class LoginComponent {
   public async isAccountValid(username: string, password: string): Promise<boolean> {
     let valid: boolean = false;
     const response = await fetch(`http://breneisminecraft.duckdns.org:5082/api/validUser/${username}/${password}`);
-    console.log("valid = " + valid);
+    const data = await response.json();
+    console.log("response = " + data);
     return valid;
   }
 
