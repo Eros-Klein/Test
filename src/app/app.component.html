@@ -1,4 +1,4 @@
-<div *ngIf="isLoggedIn(); else loginBlock" class="container">
+<div *ngIf="!isLoggedIn(); else loginBlock" class="container">
     <app-nav (categorie)="setCategorie($event)"></app-nav>
     <div [ngSwitch]="this.categorie">
         <div *ngSwitchCase="'profile'">
@@ -7,6 +7,9 @@
         <div *ngSwitchCase="'messenger'">
             <app-messenger></app-messenger>
         </div>
+        <div *ngSwitchCase="'assignment'">
+            <app-assignment></app-assignment>
+    </div>
     </div>
 </div>
 <ng-template #loginBlock>

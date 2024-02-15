@@ -26,8 +26,14 @@ p {
 }
 
 body {
-  background-color: #262329;
-  font-family: "Arial";
+  background: linear-gradient(
+    90deg,
+    #030b28 0%,
+    #1d0a45 33%,
+    #290951 52%,
+    #1f0751 80%,
+    #390452 100%
+);font-family: "Arial";
 }
 
 button {
@@ -216,4 +222,56 @@ nav {
 button:hover {
   color: #a516e7;
   cursor: pointer;
+}
+
+
+
+.assignment {
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 1vw;
+  background-color: #75757574;
+  border: rgb(255, 0, 217) 2px solid;
+  border-radius: 20px;
+  width:70.0vw;
+  display: flex;
+  flex-flow: column;
+  flex-direction: row;
+}
+
+.assignment-title {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.assignment-description {
+  font-size: 15px;
+  padding: 10px;
+  color: #ffffff67;
+}
+
+.assignment-duedate {
+  font-size: 15px;
+  padding: 10px;
+  padding-right: 5%;
+  color: #ffffff;
+  margin-left: auto;
+}
+
+.assignment-course {
+  font-size: 15px;
+  padding: 10px;
+  padding-right: 5%;
+  padding-left: 5%;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.assignment-done {
+  font-size: 15px;
+  padding: 10px;
+  padding-left: 5%;
 }

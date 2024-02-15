@@ -1,0 +1,169 @@
+@keyframes button-hover {
+    from {
+        background-color: #00000021;
+    }
+    to {
+        background-color: #ef78ff2c;
+    }
+}
+
+.assignmentList {
+    margin: 1vw;
+    width: 72.5vw;
+    position: absolute;
+    padding: 2.5vw;
+    background-color: #a1a1a11c;
+    border-radius: 20px;
+    
+    display: flex;
+    flex-flow: column;
+    flex-direction: column;
+}
+
+.assignment {
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 1vw;
+    background-color: #75757574;
+    border: rgb(255, 0, 217) 2px solid;
+    border-radius: 20px;
+    width:70.0vw;
+    display: flex;
+    flex-flow: column;
+    flex-direction: row;
+}
+
+.assignment-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.assignment-description {
+    font-size: 15px;
+    padding: 10px;
+    color: #ffffff67;
+}
+
+.assignment-duedate {
+    font-size: 15px;
+    padding: 10px;
+    padding-right: 5%;
+    color: #ffffff;
+    margin-left: auto;
+}
+
+.assignment-course {
+    font-size: 15px;
+    padding: 10px;
+    padding-right: 5%;
+    padding-left: 5%;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.assignment-done {
+    font-size: 15px;
+    padding: 10px;
+    padding-left: 5%;
+}
+
+.container {
+    margin-left: 325px;
+    margin-right: 50px;
+    overflow: auto;
+}
+
+.sidebar {
+    background-color: #301454;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right-style: solid;
+    border-right-color: #ffffff;
+    border-right-width: 2px;
+}
+
+.sidebar-option {
+    margin-bottom: 20px;
+    background-color: #00000021;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    border-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#pokemon {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+#header {
+    margin-top: 50px;
+    margin-left: 350px;
+}
+
+.sidebar :hover {
+    animation-name: button-hover;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#content {
+    width: 77.5vw;
+    height: 80vh;
+    position: absolute;
+    background-color: #ffffff3a;
+    border-radius: 20px;
+}
+
+#head {
+    color: #ffffffa9;
+}
+
+.sidebar-input {
+    margin-bottom: 20px;
+    background-color: #00000021;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    width: 90%;
+    border-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.todo:hover {
+    background-color: #ffffff5d;
+}
+
+.line {
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-right: 3px solid #ffd9fa77;
+}
+
+input.txt {
+    border-radius: 10px;
+    border-style: none;
+}
