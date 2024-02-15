@@ -13,7 +13,7 @@ export class AssignmentComponent {
   
   async fetchAssignment(token:Promise<String>) : Promise<Assignment[]> {
     let tokenstr : String = await token;
-    let response = await fetch(`http://localhost:8080/api/getAssignments/${tokenstr}`, {
+    let response = await fetch(`http://relacexyz:5420/api/getAssignments/${tokenstr}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
