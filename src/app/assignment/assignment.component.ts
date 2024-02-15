@@ -62,7 +62,7 @@ export class AssignmentComponent {
   }
 
   async testmethod() {
-    let resp2 = await fetch(`http://localhost:8080/api/getAssignments/a6eb55e1228fbc8e53b71cb714088e86`, {
+    let resp2 = await fetch(`http://relacexyz:5420/api/getAssignments/a6eb55e1228fbc8e53b71cb714088e86`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
