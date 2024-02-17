@@ -1,5 +1,5 @@
 <div *ngIf="!isLoggedIn(); else loginBlock" class="container">
-    <app-nav (categorie)="setCategorie($event)"></app-nav>
+    <app-nav [header]="'Hello'" (categorie)="setCategorie($event)"></app-nav>
     <div [ngSwitch]="this.categorie">
         <div *ngSwitchCase="'profile'">
             <app-profile></app-profile>
@@ -9,7 +9,7 @@
         </div>
         <div *ngSwitchCase="'assignment'">
             <app-assignment></app-assignment>
-    </div>
+        </div>
     </div>
 </div>
 <ng-template #loginBlock>
